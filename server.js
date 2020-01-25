@@ -8,11 +8,12 @@ app.use(express.urlencoded({extended: true})); //ALLOWS NESTED OBJECTS -- is thi
 app.use(express.json()); //Recognize the JSON
 
 var exphbs = require("express-handlebars"); //Pull in express handlebars dependency
+
 app.engine("handlebars", exphbs({ defaultLayout: "main"})); // Register handlebars view engine
 app.set("view engine", "handlebars"); //Use the view engine
 
 //Import Routes
-var routes = require("./controllers/burgers_controller.js");
+var routes = require("./controllers/burgers_controller.js"); //IS THIS RIGHT
 app.use(routes); //Recognize & use the routes
 
 //GENTLEMEN, START YOUR SERVERS!!!

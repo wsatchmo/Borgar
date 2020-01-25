@@ -1,10 +1,15 @@
 <h1>BORGARZ</h1>
 
 <h2>Eat Dem Burgz</h2>
+
 <ul>
     {{#each burgers}}
-        {{#unless devoured}}
-            {{> burgers devoured=false}} <!--BUILD BETTER DISPLAY FOR BURGERS-->
+        {{#unless this.devoured}}
+            <li>
+                <p>{{this.burger_name}}</p>
+                <!--BUILD BETTER DISPLAY FOR BURGERS-->
+                <p>{{this.id}}</p> 
+            </li>
         {{/unless}}
     {{/each}}
 </ul>
@@ -15,8 +20,12 @@
 <h2>Done Been Ate</h2>
 <ul>
     {{#each burgers}}
-        {{#if devoured}}
-            {{> burgers devoured=true}} <!--BUILD BETTER DISPLAY FOR BURGERS-->
+        {{#if this.devoured}}
+            <li>
+                <p>{{this.burger_name}}</p>
+                <!--BUILD BETTER DISPLAY FOR BURGERS-->
+                <p>{{this.id}}</p> 
+            </li>
         {{/if}}
     {{/each}}
 </ul>
