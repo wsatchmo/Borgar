@@ -1,0 +1,23 @@
+<h1>BORGARZ</h1>
+
+<h2>Eat Dem Burgz</h2>
+<ul>
+    {{#each burgers}}
+        {{#unless devoured}}
+            {{> burgers devoured=false}} <!--BUILD BETTER DISPLAY FOR BURGERS-->
+        {{/unless}}
+    {{/each}}
+</ul>
+<br>
+
+<!--BURGERS THAT HAVE BEEN EATEN-->
+
+<h2>Done Been Ate</h2>
+<ul>
+    {{#each burgers}}
+        {{#if devoured}}
+            {{> burgers devoured=true}} <!--BUILD BETTER DISPLAY FOR BURGERS-->
+        {{/if}}
+    {{/each}}
+</ul>
+<br>
