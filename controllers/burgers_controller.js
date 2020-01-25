@@ -7,10 +7,27 @@ router.get('/', function(req, res){
 });
 
 router.get('/', function(req,res){
-    burgers.all(function(data){ //display all burgers on home page
+    burgers.all(function(data){ //Display all burgers on home page
         var burgObj = {burgers: data};
         console.log(burgObj);
         res.render('index', burgObj);
     });
 });
 
+//Adding a new burger
+router.post("/burgers/create", function(req, res){
+    burgers.create(["burger_name"], [req.body.burg_name], function(data){
+        res.redirect("/burgers")
+    });
+});
+
+//Updating burger database when devoured
+router.put("/burgers/update/:id", function(req, res){
+    var condition = "id = " + req.params.id;
+    console.log("Devoured: ", condition);
+    burgers.update({"devoured": req.body.devoured}, condition, function(data){
+        res.redirect("/burgers");
+    });
+});
+
+module.exports = router;
