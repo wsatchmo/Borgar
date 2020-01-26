@@ -1,32 +1,103 @@
-<h1>BORGARZ</h1>
+<nav>
+    <div class="nav-wrapper red accent-3">
+        <a href="#!" class="brand-logo" style="font-size: 35px;"><i class="material-icons" style="font-size: 40px;">card_giftcard</i>BORGAR EET</a>
+        <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+        <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+        <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+        </ul>
+    </div>
+</nav>
 
-<h2>Eat Dem Burgz</h2>
+<div class="container">
+    <!--BURGERS THAT AIN'T BEEN EATEN-->
+    <div class="row">
+        <div class="col m5">
+            <div class="card">
+                <h1 style="margin-top: 1.95rem; text-align: center">BORGARZ</h1>
 
-<ul>
-    {{#each burgers}}
-        {{#unless this.devoured}}
-            <li>
-                <p>{{this.burger_name}}</p>
-                <!--BUILD BETTER DISPLAY FOR BURGERS-->
-                <p>{{this.id}}</p> 
-            </li>
-        {{/unless}}
-    {{/each}}
-</ul>
-<br>
+                <h3 style="text-align: center">Eet Dem Burgz</h3>
+                <table style="margin-bottom: 80px;">
+                    <thead>
+                        <th>Borgar</th>
+                        <th>ID No.</th>
+                        <th style="text-align: center">Eet It!</th>
+                    </thead>
+                    <tbody>
+                        {{#each burgers}}
+                            {{#unless this.devoured}}
+                            <tr>
+                                <td>
+                                    {{this.burger_name}} 
+                                </td>
+                                <td style="text-align: center">
+                                    {{this.id}}
+                                </td>
+                                <td>
+                                    <span class="input-group-btn">
+                                        <form action="burgers/{{this.id}}?_method=PUT" method="POST">
+                                            <input type="hidden" name="devoured" value="true">
+                                            <button class="btn yellow accent-4" type="submit"> MONCH! </button>
+                                        </form>
+                                    </span>
+                                </td>
+                            </tr>
+                            {{/unless}}
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
 <!--BURGERS THAT HAVE BEEN EATEN-->
+        
+        <div class="col m6 offset-m1">
+            <div class="card">
+                <h3 style="text-align: center">Done Been Eeted</h3>
+                <table>
+                    <thead>
+                        <th>Borgar</th>
+                        <th>ID No.</th>
+                        <th style="text-align: center">Ated it...</th>
+                    </thead>
+                    <tbody>
+                        {{#each burgers}}
+                            {{#if this.devoured}}
+                            <tr>
+                                <td>
+                                    {{this.burger_name}} 
+                                </td>
+                                <td style="text-align: center">
+                                    {{this.id}}
+                                </td>
+                            </tr>
+                            {{/if}}
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-<h2>Done Been Ate</h2>
-<ul>
-    {{#each burgers}}
-        {{#if this.devoured}}
-            <li>
-                <p>{{this.burger_name}}</p>
-                <!--BUILD BETTER DISPLAY FOR BURGERS-->
-                <p>{{this.id}}</p> 
-            </li>
-        {{/if}}
-    {{/each}}
-</ul>
-<br>
+        <!--ADDIN' BURGERS-->
+        <div class="col m12" style="margin-bottom: 80px;">
+            <h4> Add Borgar </h3>
+            <form class="create-update-form"  action="burgers/create" method="POST">
+
+                <div class="form-group">
+                    <input class="form-control input-lg" placeholder="Your Borgar Name" type="text" name="burg_name" rows="3"> </input>
+                </div>
+
+                <button class="btn yellow accent-4 right" type="submit">Add Borgar!</button>
+            </form>
+        </div>
+        </div>
+</div>
+
+<footer class="page-footer red accent-3" style="bottom: 0px; position: fixed; width: 100%; z-index: 2;">
+    <div class="footer-copyright">
+        <div class="container center">
+            <a class="white-text" href="https://github.com/wsatchmo">© 2020 wsatchmo</a>
+        </div>
+    </div>
+</footer>

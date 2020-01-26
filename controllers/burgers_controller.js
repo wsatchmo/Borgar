@@ -6,7 +6,7 @@ router.get('/', function(req, res){
     res.redirect('/burgers') //Redirect to home page
 });
 
-router.get('/', function(req,res){
+router.get('/burgers', function(req,res){
     burgers.all(function(data){ //Display all burgers on home page
         var burgObj = {burgers: data};
         console.log(burgObj);
@@ -14,19 +14,21 @@ router.get('/', function(req,res){
     });
 });
 
-//Adding a new burger
-router.post("/burgers/create", function(req, res){
-    burgers.create(["burger_name"], [req.body.burg_name], function(data){
-        res.redirect("/burgers")
-    });
-});
-
 //Updating burger database when devoured
 router.put("/burgers/update/:id", function(req, res){
     var condition = "id = " + req.params.id;
     console.log("Devoured: ", condition);
-    burgers.update({"devoured": req.body.devoured}, condition, function(data){
-        res.redirect("/burgers");
+    burgers.update({
+        devoured: true
+    }, condition, function(data){
+        res.redirect("/");
+    });
+});
+
+//Adding a new burger
+router.post("/burgers/create", function(req, res){
+    burgers.create(["burger_name"], [req.body.burg_name], function(data){
+        res.redirect("/burgers")
     });
 });
 
