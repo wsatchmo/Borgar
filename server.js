@@ -1,5 +1,5 @@
 var express = require('express'); //express dependency
-var PORT = process.nextTick.PORT || 8080; //define port
+var PORT = process.env.PORT || 8080; //define port
 var app = express(); //initialize express application
 
 app.use(express.static("public"));

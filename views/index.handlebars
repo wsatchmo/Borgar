@@ -35,12 +35,10 @@
                                     {{this.id}}
                                 </td>
                                 <td>
-                                    <span class="input-group-btn">
-                                        <form action="burgers/{{this.id}}?_method=PUT" method="POST">
-                                            <input type="hidden" name="devoured" value="true">
-                                            <button class="btn yellow accent-4" type="submit"> MONCH! </button>
-                                        </form>
-                                    </span>
+                                    <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                                        <input type="hidden" name="devoured" value="true">
+                                        <button class="btn yellow accent-4" type="submit"> MONCH! </button>
+                                    </form>
                                 </td>
                             </tr>
                             {{/unless}}

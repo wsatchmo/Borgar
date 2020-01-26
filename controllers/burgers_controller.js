@@ -15,14 +15,16 @@ router.get('/burgers', function(req,res){
 });
 
 //Updating burger database when devoured
-router.put("/burgers/update/:id", function(req, res){
-    var condition = "id = " + req.params.id;
-    console.log("Devoured: ", condition);
-    burgers.update({
-        devoured: true
-    }, condition, function(data){
-        res.redirect("/");
-    });
+//WHY IS IT NOT GETTING HERE MOTHERF*^(%^P&(%*$OU^#)&*())
+router.put("/burgers/update/:id", function(req,res){
+	var condition = "id = " + req.params.id;
+	console.log("condition", condition);
+
+	burgers.updateOne({
+		"devoured": req.body.devoured
+	}, condition, function(data){
+		res.redirect("/burgers")
+	});
 });
 
 //Adding a new burger
