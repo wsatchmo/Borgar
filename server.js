@@ -1,5 +1,5 @@
 var express = require('express'); //express dependency
-var PORT = process.env.PORT || 80; //define port
+var PORT = process.env.PORT || 8080; //define port
 var app = express(); //initialize express application
 
 //For CSS
