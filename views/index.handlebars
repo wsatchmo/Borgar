@@ -35,7 +35,7 @@
                                     {{this.id}}
                                 </td>
                                 <td>
-                                    <button data-id="{{id}}" id="eat_burg" class="btn yellow accent-4" type="submit">MONCH!</button>
+                                    <button data-id="{{id}}" class="eat_burg btn yellow accent-4" type="submit">MONCH!</button>
                                 </td>
                             </tr>
                             {{/unless}}
@@ -46,24 +46,19 @@
         </div>
 
     <script type="text/javascript"> //Script for sending PUT request
-        $("#eat_burg").on("click", function(event) {
+        $(".eat_burg").on("click", function(event) {
             var id = $(this).data("id");
-
-            var newDevourState = {
-            devoured: true
-            };
+            console.log("Button pressed");
 
             // Send the PUT request.
             $.ajax("/burgers/update/" + id, {
-            type: "PUT",
-            data: newDevourState
+            type: "PUT"
             }).then(
             function() {
-                console.log("changed devoured state to ", devoured);
+                console.log("changed devoured state to true");
                 // Reload the page to get the updated list
                 location.reload();
-            }
-            );
+            });
         });
     </script>
 
@@ -76,7 +71,7 @@
                     <thead>
                         <th>Borgar</th>
                         <th>ID No.</th>
-                        <th style="text-align: center">Ated it...</th>
+                        <th>Ated it...</th>
                     </thead>
                     <tbody>
                         {{#each burgers}}
@@ -85,8 +80,11 @@
                                 <td>
                                     {{this.burger_name}} 
                                 </td>
-                                <td style="text-align: center">
+                                <td>
                                     {{this.id}}
+                                </td>
+                                <td>
+                                    <i class="material-icons" style="font-size: 30px;">check</i>
                                 </td>
                             </tr>
                             {{/if}}
