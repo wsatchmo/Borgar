@@ -55,11 +55,9 @@ var orm = {
         });
     },
 
-    updateOne: function(table, objColVals, condition, cb){
+    updateOne: function(table, condition, cb){
 	var queryString = "UPDATE " + table;
-	queryString += "SET";
-	queryString += objToSql(objColVals);
-	queryString += " WHERE ";
+	queryString += " SET devoured = true WHERE ";
 	queryString += condition;
 
 	console.log(queryString);
