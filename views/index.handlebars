@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper red accent-3">
-        <a href="#!" class="brand-logo" style="font-size: 35px;"><i class="material-icons" style="font-size: 40px;">card_giftcard</i>BORGAR EET</a>
+        <a href="#!" class="brand-logo" style="font-size: 35px;"><img src="/images/burger_icon.png" style="height: 50px; vertical-align:middle; margin-bottom: 10px"> BORGAR EET</a>
         <ul class="right hide-on-med-and-down">
         <li><a href="sass.html"><i class="material-icons">search</i></a></li>
         <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
@@ -45,23 +45,6 @@
             </div>
         </div>
 
-    <script type="text/javascript"> //Script for sending PUT request
-        $(".eat_burg").on("click", function(event) {
-            var id = $(this).data("id");
-            console.log("Button pressed");
-
-            // Send the PUT request.
-            $.ajax("/burgers/update/" + id, {
-            type: "PUT"
-            }).then(
-            function() {
-                console.log("changed devoured state to true");
-                // Reload the page to get the updated list
-                location.reload();
-            });
-        });
-    </script>
-
 <!--BURGERS THAT HAVE BEEN EATEN-->
         
         <div class="col m6 offset-m1">
@@ -84,7 +67,7 @@
                                     {{this.id}}
                                 </td>
                                 <td>
-                                    <i class="material-icons" style="font-size: 30px;">check</i>
+                                    <i class="material-icons" style="color: red; font-size: 30px;">check</i>
                                 </td>
                             </tr>
                             {{/if}}
@@ -95,7 +78,7 @@
         </div>
 
         <!--ADDIN' BURGERS-->
-        <div class="col m12" style="margin-bottom: 80px;">
+        <div class="col m12 card" style="margin-bottom: 80px; padding-bottom: 20px">
             <h4> Add Borgar </h3>
             <form class="create-update-form"  action="burgers/create" method="POST">
 
@@ -116,3 +99,27 @@
         </div>
     </div>
 </footer>
+
+<!--                                                        
+ _____ _____ _____    _____ _____ _____ _____ _____ _____ _____ 
+|  _  |  |  |_   _|  | __  |   __|     |  |  |   __|   __|_   _|
+|   __|  |  | | |    |    -|   __|  |  |  |  |   __|__   | | |  
+|__|  |_____| |_|    |__|__|_____|__  _|_____|_____|_____| |_|  
+                                    |__|                         
+    -->
+
+<script type="text/javascript"> //Script for sending PUT request
+    $(".eat_burg").on("click", function(event) {
+        var id = $(this).data("id");
+        //console.log("Button pressed");
+
+        // Send the PUT request.
+        $.ajax("/burgers/update/" + id, {
+        type: "PUT"
+        }).then(
+        function() {
+            // Reload the page to get the updated list
+            location.reload();
+        });
+    });
+</script>

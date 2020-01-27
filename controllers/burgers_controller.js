@@ -22,14 +22,14 @@ router.put("/burgers/update/:id", function(req,res){
 	burgers.updateOne({
 		devoured: req.body.devoured
 	}, condition, function(data){
-		res.redirect("/burgers")
+		res.render('index');
 	});
 });
 
 //Adding a new burger
 router.post("/burgers/create", function(req, res){
     burgers.create(["burger_name"], [req.body.burg_name], function(data){
-        res.redirect("/burgers")
+        res.redirect("/burgers");
     });
 });
 
