@@ -1,5 +1,5 @@
 var express = require('express'); //express dependency
-var PORT = process.env.PORT || 8080; //define port
+var PORT = process.env.PORT || 80; //define port
 var app = express(); //initialize express application
 
 //For CSS
@@ -15,7 +15,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"})); // Register handleba
 app.set("view engine", "handlebars"); //Use the view engine
 
 //Import Routes
-var routes = require("./controllers/burgers_controller.js"); //IS THIS RIGHT
+var routes = require("./controllers/burgers_controller.js");
 app.use(routes); //Recognize & use the routes
 
 //GENTLEMEN, START YOUR SERVERS!!!
