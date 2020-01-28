@@ -1,11 +1,6 @@
-html{
-    min-width: 340px;
-}
-
 body{
     background-image: url("../images/burger.jpg");
     background-repeat: repeat;  
-    min-width: 340px;
 }
 
 /* MEDIA QUERIES */
