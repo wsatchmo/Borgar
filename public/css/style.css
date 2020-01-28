@@ -2,3 +2,18 @@ body{
     background-image: url("../images/burger.jpg");
     background-repeat: repeat;  
 }
+
+@media only screen and (max-width: 700px) {
+    .borgarz {
+      font-size: 25px;
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    .card {
+      width: 100%;
+    }
+    .brand-logo {
+      font-size: 20px;
+    }
+  }
