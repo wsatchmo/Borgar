@@ -5,11 +5,18 @@ html{
 body{
     background-image: url("../images/burger.jpg");
     background-repeat: repeat;  
+    min-width: 355px;
 }
+
+/* MEDIA QUERIES */
 
 @media only screen and (max-width: 700px) {
     #borgarz {
       font-size: 30px;
+    }
+    .eat_burg{
+        padding-left: 5px;
+        padding-right: 5px;
     }
   }
 
