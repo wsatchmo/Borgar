@@ -2,7 +2,7 @@ var mysql = require("mysql"); // connection to mysql info
 var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "", //Change to your own
+    password: "root", //Change to your own
     database: "borgars_db"
 });
 
