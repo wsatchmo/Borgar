@@ -1,6 +1,6 @@
 var connection = require('../config/connection.js'); //Connections dependency
 
-function printQuestionMarks(num){ // Array of question marks -- WHY??
+function printQuestionMarks(num){ // Array of question marks -- to be used as sequelize variables 
     var arr = [];
 
     for (var i = 0; i < num; i++){
